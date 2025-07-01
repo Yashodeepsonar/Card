@@ -1,0 +1,222 @@
+@import url('https://fonts.cdnfonts.com/css/samsung-sans-4');
+
+body {
+    font-family: 'Samsung Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    margin: 0;
+}
+
+.container {
+    perspective: 1000px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    width: 520px;
+    height: 292px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.frontcard, .backcard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.frontcard {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.backcard {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    transform: rotateY(180deg);
+}
+
+.frontcard__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.frontcard h1 {
+    font-size: 1.4em;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: rgb(3, 233, 3);
+}
+
+.frontcard p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.website-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.website-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.backcard__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.social-icons {
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    font-size: 1.8em;
+    margin: 0 15px;
+    color: #dcdcdc;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+.introduction {
+    font-size: 0.85em;
+    line-height: 1.6;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.contact-info i {
+    margin-right: 12px;
+    color: #007bff;
+}
+
+.mobile-note {
+    display: none;
+    color: #646262;
+    text-align: center;
+    position: absolute;
+    bottom:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    font-size: 0.9em;
+}
+
+@media (max-width: 560px) {
+    .card {
+        width: 90vw;
+        max-width: 350px;
+        height: 55vh;
+        max-height: 500px;
+    }
+
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+    }
+
+    .frontcard h1 {
+        font-size: 1.2em;
+    }
+
+    .frontcard p, .website-link, .contact-info p {
+        font-size: 0.8em;
+    }
+    
+    .backcard__content {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .introduction {
+        font-size: 0.8em;
+        line-height: 1.5;
+    }
+
+    .social-icons a {
+        font-size: 1.6em;
+        margin: 0 12px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mobile-note {
+        display: block;
+    }
+}
